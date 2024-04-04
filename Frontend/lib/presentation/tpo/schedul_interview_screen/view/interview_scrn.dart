@@ -41,134 +41,137 @@ class InterviewScheduleScreen extends StatelessWidget {
                 ):ListView.builder(
                     itemCount: control.interviewScheduleModel.data?.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.only(
-                            left: size.width * .05,
-                            right: size.width * .05,
-                            bottom: 20),
-                        child: Expanded(
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceAround,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Text("Name"),
-                                      Text("Applied For"),
-                                      Text("Phone"),
-                                      Text('Email'),
-                                      Text('Company'),
-                                      Text('Requirement'),
-                                      Text('Salary'),
-                                      Text('Last date'),
-                                      Text("Location"),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text("Applied Data"),
-                                      Text(
-                                        "Status",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Flexible(
-                                    child: Column(
+                      return Card(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            top: size.width*.05,
+                              left: size.width * .05,
+                              right: size.width * .05,
+                              bottom: 20),
+                          child: Expanded(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
                                       crossAxisAlignment:
                                       CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.student?.firstName} ${control.interviewScheduleModel.data?[index].application?.student?.lastName}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.job?.position}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.student?.phoneNo}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.student?.emailAddress}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].company?.name}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.job?.requirements}",
-                                            overflow: TextOverflow.ellipsis),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.job?.salary}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.job?.deadline}"),
-                                        Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.job?.location}"),
+                                        Text("Name"),
+                                        Text("Applied For"),
+                                        Text("Phone"),
+                                        Text('Email'),
+                                        Text('Company'),
+                                        Text('Requirement'),
+                                        Text('Salary'),
+                                        Text('Last date'),
+                                        Text("Location"),
                                         SizedBox(
                                           height: 5,
                                         ),
+                                        Text("Applied Data"),
                                         Text(
-                                            ":${control.interviewScheduleModel.data?[index].application?.appliedDate}"),
-                                        Text(
-                                          ":${control.interviewScheduleModel.data?[index].application?.status}",
+                                          "Status",
                                           style: TextStyle(
-                                              color: Colors.red,
                                               fontWeight: FontWeight.bold),
-                                        ),
+                                        )
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Divider(),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "Interview :-",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.student?.firstName} ${control.interviewScheduleModel.data?[index].application?.student?.lastName}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.job?.position}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.student?.phoneNo}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.student?.emailAddress}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].company?.name}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.job?.requirements}",
+                                              overflow: TextOverflow.ellipsis),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.job?.salary}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.job?.deadline}"),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.job?.location}"),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                              ":${control.interviewScheduleModel.data?[index].application?.appliedDate}"),
+                                          Text(
+                                            ":${control.interviewScheduleModel.data?[index].application?.status}",
+                                            style: TextStyle(
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Date & Time",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        "Location",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                    ),
+                                  ],
+                                ),
+                                Divider(),
+                                Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
                                       children: [
-                                        Text(""),
                                         Text(
-                                          ":${control.interviewScheduleModel.data?[index].dateTime}",
+                                          "Interview :-",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                         Text(
-                                          ":${control.interviewScheduleModel.data?[index].location}",
+                                          "Date",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
+                                        Text(
+                                          "Location",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        )
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Text(""),
+                                          Text(
+                                            ":${control.interviewScheduleModel.data?[index].dateTime}",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            ":${control.interviewScheduleModel.data?[index].location}",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );
