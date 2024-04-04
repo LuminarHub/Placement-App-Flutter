@@ -10,12 +10,15 @@ router.register("company",views.CompanyView,basename="company_list"),
 router.register("material",views.MaterialsView,basename="materials"),
 router.register("application",views.ApplicationView,basename="application"),
 router.register("scheduledinterview",views.InterviewSheduleView,basename="scheduledinterview"),
+router.register("quiz",views.QuizView,basename="quiz"),
+
 
 
 
 urlpatterns=[
     path("register/",views.TpoCreationView.as_view(),name="signin"),
     path('token/',views.CustomAuthToken.as_view(), name='token'),
+    
 
 
 ] +router.urls
