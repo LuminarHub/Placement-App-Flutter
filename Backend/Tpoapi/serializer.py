@@ -44,6 +44,7 @@ class MaterialSerializer(serializers.ModelSerializer):
     
 
 class JobSerializer(serializers.ModelSerializer):
+    posted_by=serializers.CharField(read_only=True)
     class Meta:
         model=Job
         fields="__all__" 
