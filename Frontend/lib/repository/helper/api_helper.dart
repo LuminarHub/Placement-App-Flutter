@@ -8,15 +8,9 @@ import '../../config/app_config.dart';
 class ApiHelper {
   static Map<String, String> getApiHeader({String? access, String? dbName}) {
     if (access != null) {
-      return {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token $access'
-      };
+      return {'Content-Type': 'application/json', 'Authorization': 'Token $access'};
     } else if (dbName != null) {
-      return {
-        'Content-Type': 'application/json',
-        'dbName': dbName
-      };
+      return {'Content-Type': 'application/json', 'dbName': dbName};
     } else {
       return {
         'Content-Type': 'application/json',
@@ -24,8 +18,7 @@ class ApiHelper {
     }
   }
 
-  static Map<String, String> getApiHeaderForException(
-      {String? access, String? dbName}) {
+  static Map<String, String> getApiHeaderForException({String? access, String? dbName}) {
     if (access != null) {
       return {
         // 'Content-Type': 'application/json',
@@ -61,6 +54,28 @@ class ApiHelper {
       } else {
         log("Else Condition >> Api failed");
         return null;
+      }
+    } catch (e) {
+      log("$e");
+    }
+  }
+
+  static getQuiz() async {
+    log("ApiHelper -> getQuiz()");
+    final url = Uri.parse(AppConfig.quizURL);
+    log("$url");
+    try {
+      var response = await http.get(url);
+      log("Api Called -> status code -> ${response.statusCode}");
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        log("Api Helper -> ${data.toString()}");
+        var decodedData = {"status": 1, "data": data};
+        return decodedData;
+      } else {
+        log("Else Condition -> Api failed");
+        var decodedData = {"status": 0, "data": null};
+        return decodedData;
       }
     } catch (e) {
       log("$e");
