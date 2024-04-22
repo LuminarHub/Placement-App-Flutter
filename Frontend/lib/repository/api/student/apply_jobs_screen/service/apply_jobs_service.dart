@@ -5,7 +5,7 @@ import 'package:placement_app/repository/helper/api_helper.dart';
 
 class ApplyJobsService {
   static Future<dynamic> fetchApplyJobs() async {
-    log("ApplyJobsService -> fetchApplyJobs -> started");
+    log("ApplyJobsService -> fetchApplyJobs()");
     try {
       var decodedData = await ApiHelper.getData(
           endPoint: "student/jobs/", header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
@@ -16,7 +16,7 @@ class ApplyJobsService {
   }
 
   static Future<dynamic> postApplyJob(id) async {
-    log("ApplyJobsService -> postApplyJob -> started ");
+    log("ApplyJobsService -> postApplyJob(id)");
     try {
       var decodedData = await ApiHelper.postData(
           endPoint: "student/jobs/$id/apply_job/",

@@ -20,8 +20,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
   }
 
   fetchData(context) {
-    Provider.of<ApplyJobsController>(context, listen: false)
-        .fetchApplyJobs(context);
+    Provider.of<ApplyJobsController>(context, listen: false).fetchApplyJobs(context);
   }
 
   @override
@@ -32,21 +31,16 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
       appBar: StudentAppBar(
         title: "Apply for Jobs",
       ),
-      body:
-          Consumer<ApplyJobsController>(builder: (context, controller, child) {
+      body: Consumer<ApplyJobsController>(builder: (context, controller, child) {
         return controller.isLoading
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : controller.applyJobsModel.data == null ||
-                    controller.applyJobsModel.data!.isEmpty
+            : controller.applyJobsModel.data == null || controller.applyJobsModel.data!.isEmpty
                 ? Center(
                     child: Text(
                       "No Data Found",
-                      style: TextStyle(
-                          color: ColorTheme.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: ColorTheme.red, fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   )
                 : ListView.builder(
@@ -56,9 +50,9 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                         // height: size.height * .34,
                         // width: size.width * .9,
                         margin: EdgeInsets.only(bottom: 10),
-                        padding: EdgeInsets.only(
-                            left: size.width * .03, right: size.width * .03),
+                        padding: EdgeInsets.only(left: size.width * .03, right: size.width * .03),
                         child: Card(
+                          color: Colors.blueGrey.shade100,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 25, left: 15),
                             child: Column(
@@ -66,13 +60,17 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                               children: [
                                 Text(
                                   "${controller.applyJobsModel.data?[index].position}",
-                                  style: TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 5),
+                                Text("Company:  ${controller.applyJobsModel.data?[index].postedBy}",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w400,
+                                    )),
+                                SizedBox(height: 5),
                                 Text(
-                                  '${controller.applyJobsModel.data?[index].description}',
+                                  'Description: ${controller.applyJobsModel.data?[index].description}',
                                   maxLines: 2,
                                   style: TextStyle(
                                     fontSize: 20,
@@ -81,52 +79,35 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  '${controller.applyJobsModel.data?[index].requirements}',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
+                                  'Skills: ${controller.applyJobsModel.data?[index].requirements}',
+                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  '${controller.applyJobsModel.data?[index].location}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w200),
+                                  'Place: ${controller.applyJobsModel.data?[index].location}',
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(height: 5),
                                 Text(
                                   'Salary: ${controller.applyJobsModel.data?[index].salary}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w200),
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                                 ),
                                 Text(
                                   'Last Date:${controller.applyJobsModel.data?[index].deadline}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w200),
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                                 ),
-                                Text(
-                                    "Company Id : ${controller.applyJobsModel.data?[index].postedBy}"),
-                                SizedBox(height: 5),
                                 SizedBox(height: 10),
                                 Center(
                                   child: MaterialButton(
                                     color: ColorTheme.primary,
                                     child: Text(
                                       "APPLY NOW",
-                                      style: TextStyle(
-                                          color: ColorTheme.white,
-                                          fontWeight: FontWeight.bold),
+                                      style: TextStyle(color: ColorTheme.white, fontWeight: FontWeight.bold),
                                     ),
                                     height: size.height * .06,
                                     onPressed: () {
-                                      Provider.of<ApplyJobsController>(context,
-                                              listen: false)
-                                          .postApplyJob(
-                                              context,
-                                              controller.applyJobsModel
-                                                  .data?[index].id);
+                                      Provider.of<ApplyJobsController>(context, listen: false)
+                                          .postApplyJob(context, controller.applyJobsModel.data?[index].id);
                                     },
                                   ),
                                 )

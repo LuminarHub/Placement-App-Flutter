@@ -14,7 +14,7 @@ class ApplyJobsController extends ChangeNotifier {
     notifyListeners();
     log("ApplyJobsController -> fetchApplyJobs");
     ApplyJobsService.fetchApplyJobs().then((value) {
-      log("ApplyJobsService.fetchApplyJobs() -> started");
+
       if (value["status"] == 1) {
         log("data -> ${value["data"]}");
         applyJobsModel = ApplyJobsModel.fromJson(value);
@@ -27,9 +27,9 @@ class ApplyJobsController extends ChangeNotifier {
   }
 
   postApplyJob(context, id) async {
-    log("ApplyJobsController -> postApplyJob");
+    log("ApplyJobsController -> postApplyJob()");
     ApplyJobsService.postApplyJob(id).then((value) {
-      log("ApplyJobsService.postApplyJob(id) -> started");
+
       if (value["status"] == 1) {
         log("data -> ${value["status"]}");
         AppUtils.oneTimeSnackBar("Applied", context: context);

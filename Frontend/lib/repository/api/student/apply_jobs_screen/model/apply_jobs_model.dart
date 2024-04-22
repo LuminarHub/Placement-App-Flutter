@@ -30,6 +30,7 @@ class ApplyJobsModel {
 
 class Datum {
     int? id;
+    String? postedBy;
     String? position;
     String? description;
     String? requirements;
@@ -37,10 +38,10 @@ class Datum {
     String? salary;
     DateTime? postedDate;
     String? deadline;
-    int? postedBy;
 
     Datum({
         this.id,
+        this.postedBy,
         this.position,
         this.description,
         this.requirements,
@@ -48,11 +49,11 @@ class Datum {
         this.salary,
         this.postedDate,
         this.deadline,
-        this.postedBy,
     });
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
+        postedBy: json["posted_by"],
         position: json["position"],
         description: json["description"],
         requirements: json["requirements"],
@@ -60,11 +61,11 @@ class Datum {
         salary: json["salary"],
         postedDate: json["posted_date"] == null ? null : DateTime.parse(json["posted_date"]),
         deadline: json["deadline"],
-        postedBy: json["posted_by"],
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
+        "posted_by": postedBy,
         "position": position,
         "description": description,
         "requirements": requirements,
@@ -72,6 +73,5 @@ class Datum {
         "salary": salary,
         "posted_date": postedDate?.toIso8601String(),
         "deadline": deadline,
-        "posted_by": postedBy,
     };
 }
