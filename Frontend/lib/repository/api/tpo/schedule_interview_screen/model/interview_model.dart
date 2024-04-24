@@ -94,6 +94,7 @@ class Application {
 
 class Job {
     int? id;
+    String? postedBy;
     String? position;
     String? description;
     String? requirements;
@@ -101,10 +102,10 @@ class Job {
     String? salary;
     DateTime? postedDate;
     String? deadline;
-    int? postedBy;
 
     Job({
         this.id,
+        this.postedBy,
         this.position,
         this.description,
         this.requirements,
@@ -112,11 +113,11 @@ class Job {
         this.salary,
         this.postedDate,
         this.deadline,
-        this.postedBy,
     });
 
     factory Job.fromJson(Map<String, dynamic> json) => Job(
         id: json["id"],
+        postedBy: json["posted_by"],
         position: json["position"],
         description: json["description"],
         requirements: json["requirements"],
@@ -124,11 +125,11 @@ class Job {
         salary: json["salary"],
         postedDate: json["posted_date"] == null ? null : DateTime.parse(json["posted_date"]),
         deadline: json["deadline"],
-        postedBy: json["posted_by"],
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
+        "posted_by": postedBy,
         "position": position,
         "description": description,
         "requirements": requirements,
@@ -136,7 +137,6 @@ class Job {
         "salary": salary,
         "posted_date": postedDate?.toIso8601String(),
         "deadline": deadline,
-        "posted_by": postedBy,
     };
 }
 
