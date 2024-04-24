@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/controller/tpo_manage_student_controller.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/widget/student_profile.dart';
+import 'package:placement_app/presentation/tpo/student_screen/view/widget/student_profile.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/app_config.dart';
 import '../../../common/get started scrn/get_started.dart';
+import '../controller/tpo_manage_student_controller.dart';
 
-class TPOManageStudentScreen extends StatefulWidget {
-  const TPOManageStudentScreen({super.key});
+class StudentScreen extends StatefulWidget {
+  const StudentScreen({super.key});
 
   @override
-  State<TPOManageStudentScreen> createState() => _TPOManageStudentScreenState();
+  State<StudentScreen> createState() => _StudentScreenState();
 }
 
-class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
+class _StudentScreenState extends State<StudentScreen> {
   late SharedPreferences sharedPreferences;
 
   @override
@@ -93,12 +93,23 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                               //   email: '${tmsControl.tpoManageStudentModel.data?[index].emailAddress}',
                               // );
                               return Card(
+                                color: ColorTheme.background,
                                 child: ListTile(
                                   onTap: () {
                                     Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => StudentProfile(id: "${tmsControl.tpoManageStudentModel.data?[index].id}",)));
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => StudentProfile(
+                                                  id: "${tmsControl.tpoManageStudentModel.data?[index].id}",
+                                                )));
                                   },
-                                  leading: CircleAvatar(child: Text("${index + 1}")),
+                                  leading: CircleAvatar(
+                                    child: Text(
+                                      "${index + 1}",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    backgroundColor: ColorTheme.primary,
+                                  ),
                                   title: Text(
                                       "Name : ${tmsControl.tpoManageStudentModel.data?[index].firstName} ${tmsControl.tpoManageStudentModel.data?[index].lastName}"),
                                   subtitle: Text("ID : ${tmsControl.tpoManageStudentModel.data?[index].id}"),

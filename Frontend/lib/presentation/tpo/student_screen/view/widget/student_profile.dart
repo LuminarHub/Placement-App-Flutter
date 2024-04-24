@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/controller/tpo_manage_student_controller.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/widget/title_name.dart';
+import 'package:placement_app/presentation/tpo/student_screen/view/widget/title_name.dart';
 import 'package:provider/provider.dart';
+
+import '../../controller/tpo_manage_student_controller.dart';
 
 class StudentProfile extends StatefulWidget {
   const StudentProfile({super.key, required this.id});

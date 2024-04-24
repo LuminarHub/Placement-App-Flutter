@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/tpo_login_screen/view/tpo_login_screen.dart';
 import 'package:placement_app/repository/api/common/registration/tpo_service/tpo_register_service.dart';
 
 import '../../../../../core/utils/app_utils.dart';
+import '../../../../tpo/login_screen/view/tpo_login_screen.dart';
 
 class TpoRegisterController extends ChangeNotifier {
   void onRegister(

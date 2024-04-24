@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/schedul_interview_screen/controller/interview_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
+import '../controller/interview_controller.dart';
 
-class InterviewScheduleScreen extends StatelessWidget {
-  const InterviewScheduleScreen({super.key});
+class InterviewScreen extends StatelessWidget {
+  const InterviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

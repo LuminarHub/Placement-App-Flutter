@@ -29,44 +29,40 @@ class PostedJobsDetailsCard extends StatelessWidget {
       padding: EdgeInsets.only(left: 10, top: 10),
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(10)),
-      child: Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Company'),
-                      Text('Job title'),
-                      Text('Description'),
-                      Text('Requirement'),
-                      Text('Salary'),
-                      Text('Last date'),
-                    ],
-                  ),
-                  SizedBox(width: 5),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(':$companyName'),
-                        Text(':$jobTitle'),
-                        Text(':$description',overflow: TextOverflow.ellipsis),
-                        Text(':$requirement'),
-                        Text(':$salary'),
-                        Text(':$lastDate'),
-                      ],
-                    ),
-                  ),
+                  Text('Company'),
+                  Text('Job title'),
+                  Text('Description'),
+                  Text('Requirement'),
+                  Text('Salary'),
+                  Text('Last date'),
                 ],
               ),
-            ),
-          ],
-        ),
+              SizedBox(width: 5),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(':$companyName'),
+                    Text(':$jobTitle'),
+                    Text(':$description',overflow: TextOverflow.ellipsis),
+                    Text(':$requirement'),
+                    Text(':$salary'),
+                    Text(':$lastDate'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

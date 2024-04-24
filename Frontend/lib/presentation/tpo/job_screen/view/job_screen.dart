@@ -1,19 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/manage_job_req_screen/controller/manage_job_application_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
+import '../controller/manage_job_application_controller.dart';
 
-class TPOManageJobScreen extends StatefulWidget {
-  const TPOManageJobScreen({super.key});
+class JobScreen extends StatefulWidget {
+  const JobScreen({super.key});
 
   @override
-  State<TPOManageJobScreen> createState() => _TPOManageJobScreenState();
+  State<JobScreen> createState() => _JobScreenState();
 }
 
-class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
+class _JobScreenState extends State<JobScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);

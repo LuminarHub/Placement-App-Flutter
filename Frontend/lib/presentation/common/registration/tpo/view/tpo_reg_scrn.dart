@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/tpo_login_screen/view/tpo_login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
 import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
+import '../../../../tpo/login_screen/view/tpo_login_screen.dart';
 import '../controller/tpo_register_controller.dart';
 
 class TpoRegistration extends StatefulWidget {
