@@ -30,6 +30,7 @@ class  CompanySerializer(serializers.ModelSerializer):
         
 class JobSerializer(serializers.ModelSerializer):
     posted_by=serializers.CharField(read_only=True)
+    posted_by_id=serializers.CharField(read_only=True)
     class Meta:
         model=Job
         fields="__all__"  
