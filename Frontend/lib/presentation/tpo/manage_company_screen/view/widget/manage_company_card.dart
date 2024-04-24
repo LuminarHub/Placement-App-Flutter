@@ -18,7 +18,7 @@ class ManageCompanyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var imgUrl = "${AppConfig.mediaurl}${logo}";
+    var imgUrl = "${AppConfig.mediaURL}${logo}";
     return Container(
       height: size.width*.3,
       padding: EdgeInsets.only(bottom: size.height * .01),

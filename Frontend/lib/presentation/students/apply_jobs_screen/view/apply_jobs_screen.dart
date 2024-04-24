@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/controller/apply_job_controller.dart';
+import 'package:placement_app/presentation/students/apply_jobs_screen/view/widget/company_details_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
@@ -58,9 +59,24 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "${controller.applyJobsModel.data?[index].position}",
-                                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${controller.applyJobsModel.data?[index].position}",
+                                      style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                                    ),
+                                    Spacer(),
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => CompanyDetailsScreen(
+                                                        id: controller.applyJobsModel.data?[index].id??0,
+                                                      )));
+                                        },
+                                        child: Text("View Company"))
+                                  ],
                                 ),
                                 SizedBox(height: 5),
                                 Text("Company:  ${controller.applyJobsModel.data?[index].postedBy}",

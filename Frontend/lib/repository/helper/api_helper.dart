@@ -46,13 +46,13 @@ class ApiHelper {
     log("$url");
     try {
       var response = await http.get(url, headers: header);
-      log("Api Called => status code=${response.statusCode}");
+      log("Api Called -> status code -> ${response.statusCode}");
       if (response.statusCode == 200) {
         var decodedData = jsonDecode(response.body);
-        log("Api Helper>>>>>>>${decodedData.toString()}");
+        log("Api Helper -> response.body -> ${decodedData.toString()}");
         return decodedData;
       } else {
-        log("Else Condition >> Api failed");
+        log("Else Condition -> Api failed");
         return null;
       }
     } catch (e) {

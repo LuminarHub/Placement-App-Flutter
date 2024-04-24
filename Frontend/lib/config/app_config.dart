@@ -1,9 +1,11 @@
 class AppConfig {
   //baseurl is set here
-  static String baseurl = "http://192.168.1.62:8000/";
+  static String baseurl = "http://10.11.0.52:8000/";
 
   //mediaurl
-  static String mediaurl = "http://192.168.1.62:8000";
+  static String mediaURL = "http://10.11.0.52:8000";
+
+  static const String noDp = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
 
   static const String quizURL = "https://nice-lime-hippo-wear.cyclic.app/api/v1/quiz";
 

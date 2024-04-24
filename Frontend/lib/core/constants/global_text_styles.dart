@@ -111,4 +111,5 @@ class GLTextStyles {
     fontSize: 24,
     fontWeight: FontWeight.w500,
   );
+  static const TextStyle companyDetailsTS = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
 }

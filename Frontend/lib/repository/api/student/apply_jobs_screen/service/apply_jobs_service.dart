@@ -26,4 +26,15 @@ class ApplyJobsService {
       log("$e");
     }
   }
+
+  static Future<dynamic> fetchCompanyDetails(id) async {
+    try {
+      var decodedData = await ApiHelper.getData(
+          endPoint: "student/companies/$id/",
+          header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
+      return decodedData;
+    } catch (e) {
+      log("$e");
+    }
+  }
 }
