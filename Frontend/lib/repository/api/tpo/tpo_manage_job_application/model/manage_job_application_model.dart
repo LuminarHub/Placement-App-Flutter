@@ -1,10 +1,12 @@
+// To parse this JSON data, do
+//
+//     final tpoManageJobModel = tpoManageJobModelFromJson(jsonString);
+
 import 'dart:convert';
 
-TpoManageJobModel tpoManageJobModelFromJson(String str) =>
-    TpoManageJobModel.fromJson(json.decode(str));
+TpoManageJobModel tpoManageJobModelFromJson(String str) => TpoManageJobModel.fromJson(json.decode(str));
 
-String tpoManageJobModelToJson(TpoManageJobModel data) =>
-    json.encode(data.toJson());
+String tpoManageJobModelToJson(TpoManageJobModel data) => json.encode(data.toJson());
 
 class TpoManageJobModel {
   int? status;
@@ -15,22 +17,15 @@ class TpoManageJobModel {
     this.data,
   });
 
-  factory TpoManageJobModel.fromJson(Map<String, dynamic> json) =>
-      TpoManageJobModel(
-        status: json["status"],
-        data: json["data"] == null
-            ? []
-            : List<Datum>.from(
-                json["data"]!.map((x) => Datum.fromJson(x)),
-              ),
-      );
+  factory TpoManageJobModel.fromJson(Map<String, dynamic> json) => TpoManageJobModel(
+    status: json["status"],
+    data: json["data"] == null ? [] : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
+  );
 
   Map<String, dynamic> toJson() => {
-        "status": status,
-        "data": data == null
-            ? []
-            : List<dynamic>.from(data!.map((x) => x.toJson())),
-      };
+    "status": status,
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
+  };
 }
 
 class Datum {
@@ -38,7 +33,7 @@ class Datum {
   Student? student;
   Job? job;
   DateTime? appliedDate;
-  Status? status;
+  String? status;
 
   Datum({
     this.id,
@@ -49,28 +44,25 @@ class Datum {
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
-        student: json["student"] == null
-            ? null
-            : Student.fromJson(json["student"]),
-        job: json["job"] == null ? null : Job.fromJson(json["job"]),
-        appliedDate: json["applied_date"] == null
-            ? null
-            : DateTime.parse(json["applied_date"]),
-        status: statusValues.map[json["status"]],
-      );
+    id: json["id"],
+    student: json["student"] == null ? null : Student.fromJson(json["student"]),
+    job: json["job"] == null ? null : Job.fromJson(json["job"]),
+    appliedDate: json["applied_date"] == null ? null : DateTime.parse(json["applied_date"]),
+    status: json["status"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "student": student?.toJson(),
-        "job": job?.toJson(),
-        "applied_date": appliedDate?.toIso8601String(),
-        "status": statusValues.reverse[status],
-      };
+    "id": id,
+    "student": student?.toJson(),
+    "job": job?.toJson(),
+    "applied_date": appliedDate?.toIso8601String(),
+    "status": status,
+  };
 }
 
 class Job {
   int? id;
+  String? postedBy;
   String? position;
   String? description;
   String? requirements;
@@ -78,10 +70,10 @@ class Job {
   String? salary;
   DateTime? postedDate;
   String? deadline;
-  int? postedBy;
 
   Job({
     this.id,
+    this.postedBy,
     this.position,
     this.description,
     this.requirements,
@@ -89,47 +81,32 @@ class Job {
     this.salary,
     this.postedDate,
     this.deadline,
-    this.postedBy,
   });
 
   factory Job.fromJson(Map<String, dynamic> json) => Job(
-        id: json["id"],
-        position: json["position"],
-        description: json["description"],
-        requirements: json["requirements"],
-        location: json["location"],
-        salary: json["salary"],
-        postedDate: json["posted_date"] == null
-            ? null
-            : DateTime.parse(json["posted_date"]),
-        deadline: json["deadline"],
-        postedBy: json["posted_by"],
-      );
+    id: json["id"],
+    postedBy: json["posted_by"],
+    position: json["position"],
+    description: json["description"],
+    requirements: json["requirements"],
+    location: json["location"],
+    salary: json["salary"],
+    postedDate: json["posted_date"] == null ? null : DateTime.parse(json["posted_date"]),
+    deadline: json["deadline"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "position": position,
-        "description": description,
-        "requirements": requirements,
-        "location": location,
-        "salary": salary,
-        "posted_date": postedDate?.toIso8601String(),
-        "deadline": deadline,
-        "posted_by": postedBy,
-      };
+    "id": id,
+    "posted_by": postedBy,
+    "position": position,
+    "description": description,
+    "requirements": requirements,
+    "location": location,
+    "salary": salary,
+    "posted_date": postedDate?.toIso8601String(),
+    "deadline": deadline,
+  };
 }
-
-enum Status {
-  APPROVED,
-  PENDING,
-  REJECTED
-}
-
-final statusValues = EnumValues<String?, Status>({
-  "APPROVED": Status.APPROVED,
-  "PENDING": Status.PENDING,
-  "REJECTED": Status.REJECTED
-});
 
 class Student {
   String? id;
@@ -149,32 +126,20 @@ class Student {
   });
 
   factory Student.fromJson(Map<String, dynamic> json) => Student(
-        id: json["id"],
-        firstName: json["First_name"],
-        lastName: json["Last_name"],
-        phoneNo: json["phone_no"],
-        emailAddress: json["email_address"],
-        username: json["username"],
-      );
+    id: json["id"],
+    firstName: json["First_name"],
+    lastName: json["Last_name"],
+    phoneNo: json["phone_no"],
+    emailAddress: json["email_address"],
+    username: json["username"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "First_name": firstName,
-        "Last_name": lastName,
-        "phone_no": phoneNo,
-        "email_address": emailAddress,
-        "username": username,
-      };
-}
-
-class EnumValues<T, U> {
-  Map<T, U> map;
-  late Map<U, T> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<U, T> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
+    "id": id,
+    "First_name": firstName,
+    "Last_name": lastName,
+    "phone_no": phoneNo,
+    "email_address": emailAddress,
+    "username": username,
+  };
 }

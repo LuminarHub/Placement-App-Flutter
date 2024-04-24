@@ -11,9 +11,8 @@ class TPOManageJobController extends ChangeNotifier {
 
   fetchJobData(context) {
     TPOManageJobService.fetchJobData().then((resData) {
-      log("TPOManageJobController>>fetchJobData");
+      log("TPOManageJobController -> fetchJobData()");
       if (resData["status"] == 1) {
-        // log("----------------$resData");
         tpoManageJobModel = TpoManageJobModel.fromJson(resData);
       } else {
         AppUtils.oneTimeSnackBar("Error: Data Not Found ", context: context);
@@ -23,6 +22,7 @@ class TPOManageJobController extends ChangeNotifier {
   }
 
   onReject(BuildContext context, {int? id}) {
+    log("TPOManageJobController -> onReject()");
     TPOManageJobService.rejectApplication(id).then((data) {
       if (data["status"] == 1) {
         var message = data["msg"];
@@ -36,6 +36,7 @@ class TPOManageJobController extends ChangeNotifier {
   }
 
   onApprove(BuildContext context, {int? id}) {
+    log("TPOManageJobController -> onApprove()");
     TPOManageJobService.approveApplication(id).then((data) {
       if (data["status"] == 1) {
         var message = data["msg"];
