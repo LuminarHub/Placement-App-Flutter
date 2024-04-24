@@ -7,10 +7,18 @@ class TPOManageStudentService {
   static Future<dynamic> fetchData() async {
     try {
       var decodedData = await ApiHelper.getData(
-          endPoint: "tpo/student/",
-          header:
-              ApiHelper.getApiHeader(access: await AppUtils.getAccessKey())
-              );
+          endPoint: "tpo/student/", header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
+      return decodedData;
+    } catch (e) {
+      log("$e");
+    }
+  }
+
+  static Future<dynamic> fetchStudentDetails(id) async {
+    try {
+      var decodedData = await ApiHelper.getData(
+          endPoint: "tpo/student/$id/",
+          header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
       return decodedData;
     } catch (e) {
       log("$e");
