@@ -9,14 +9,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../config/app_config.dart';
 import '../../../../core/constants/color_constants.dart';
 
-class InterviewStatusScrn extends StatefulWidget {
-  const InterviewStatusScrn({super.key});
+class InterviewStatusScreen extends StatefulWidget {
+  const InterviewStatusScreen({super.key});
 
   @override
-  State<InterviewStatusScrn> createState() => _InterviewStatusScrnState();
+  State<InterviewStatusScreen> createState() => _InterviewStatusScreenState();
 }
 
-class _InterviewStatusScrnState extends State<InterviewStatusScrn> {
+class _InterviewStatusScreenState extends State<InterviewStatusScreen> {
   late SharedPreferences sharedPreferences;
 
   @override

@@ -72,7 +72,8 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) => CompanyDetailsScreen(
-                                                        id: controller.applyJobsModel.data?[index].id??0,
+                                                        id: controller.applyJobsModel.data![index].postedById
+                                                            .toString(),
                                                       )));
                                         },
                                         child: Text("View Company"))

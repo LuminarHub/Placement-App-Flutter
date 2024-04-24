@@ -17,7 +17,7 @@ class StudentBottomNavigationScreen extends StatelessWidget {
           builder: (context, controller, _) {
         return IndexedStack(
           children: [
-            InterviewStatusScrn(),
+            InterviewStatusScreen(),
             QuizScreen(),
             ApplyJobScreen(),
             ApplicationStatus()

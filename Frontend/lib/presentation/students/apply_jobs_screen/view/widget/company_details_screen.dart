@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class CompanyDetailsScreen extends StatefulWidget {
   const CompanyDetailsScreen({super.key, required this.id});
 
-  final int id;
+  final String id;
 
   @override
   State<CompanyDetailsScreen> createState() => _CompanyDetailsScreenState();
