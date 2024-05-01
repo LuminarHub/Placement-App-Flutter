@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 
@@ -8,13 +7,16 @@ class StudentAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final bool? centerTitle;
   final TextStyle? titleTextStyle;
+  final PreferredSizeWidget? bottom;
 
-  const StudentAppBar({super.key,
+  const StudentAppBar({
+    super.key,
     this.title,
     this.leading,
     this.actions,
     this.centerTitle = true,
     this.titleTextStyle,
+    this.bottom,
   });
 
   @override
@@ -25,6 +27,7 @@ class StudentAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: ColorTheme.white,
       leading: leading,
       actions: actions,
+      bottom: bottom,
     );
   }
 

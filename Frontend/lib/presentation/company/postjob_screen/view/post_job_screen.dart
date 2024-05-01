@@ -1,4 +1,8 @@
+import 'dart:developer';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:placement_app/presentation/company/postjob_screen/controller/post_job_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +20,9 @@ class _PostJobScreenState extends State<PostJobScreen> {
   TextEditingController locationController = TextEditingController();
   TextEditingController salaryController = TextEditingController();
   TextEditingController deadlineController = TextEditingController();
+  DateTime now = DateTime.now();
+  String? selectedDate;
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,35 +39,50 @@ class _PostJobScreenState extends State<PostJobScreen> {
             Text("Position"),
             TextField(
               controller: positionController,
-              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+              decoration:
+                  InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
             ),
             SizedBox(height: 10),
             Text("Description"),
             TextField(
               controller: descriptionController,
-              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
-              maxLines: 4,
+              decoration:
+                  InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+              maxLines: 3,
             ),
             SizedBox(height: 10),
             Text(" Skill Requirement"),
             TextField(
                 controller: requirementController,
-                decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+                decoration:
+                    InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
             SizedBox(height: 10),
             Text("Location"),
             TextField(
                 controller: locationController,
-                decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+                decoration:
+                    InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
             SizedBox(height: 10),
             Text("Salary"),
             TextField(
                 controller: salaryController,
-                decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+                decoration:
+                    InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
             SizedBox(height: 10),
             Text("Application Deadline"),
-            TextField(
-                controller: deadlineController,
-                decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+
+            SizedBox(
+              height: 150,
+              child: CupertinoDatePicker(
+                  mode: CupertinoDatePickerMode.date,
+                  initialDateTime: now,
+                  minimumDate: now,
+                  maximumDate: now.add(Duration(days: 180)),
+                  dateOrder: DatePickerDateOrder.ymd,
+                  onDateTimeChanged: (newDateTime) {
+                    selectedDate = DateFormat("yyyy-MM-dd HH:mm:ss").format(newDateTime);
+                  }),
+            ),
             SizedBox(height: 17),
             Center(
               child: MaterialButton(
@@ -73,15 +95,16 @@ class _PostJobScreenState extends State<PostJobScreen> {
                       requirementController.text,
                       locationController.text,
                       salaryController.text,
-                      deadlineController.text,
+                      selectedDate!,
                       context,
                     );
-                     positionController.clear();
-                      descriptionController.clear();
-                      requirementController.clear();
-                      locationController.clear();
-                      salaryController.clear();
-                      deadlineController.clear();
+                    log("selected date -> ${selectedDate}");
+                    positionController.clear();
+                    descriptionController.clear();
+                    requirementController.clear();
+                    locationController.clear();
+                    salaryController.clear();
+                    deadlineController.clear();
                   },
                   child: Text(
                     "DONE",

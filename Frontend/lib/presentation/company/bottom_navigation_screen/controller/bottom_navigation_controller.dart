@@ -14,7 +14,7 @@ class CompanyBottomController with ChangeNotifier {
   }
 
   List<Widget> screens = [
-    ApplicationRecived(),
+    ApplicationReceived(),
     PostJobScreen(),
     JobsPostedScreen(),
     InterviewStatusScreen()

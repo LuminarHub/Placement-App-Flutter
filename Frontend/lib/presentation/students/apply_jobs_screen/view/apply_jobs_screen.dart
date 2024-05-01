@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/controller/apply_job_controller.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/view/widget/company_details_screen.dart';
 import 'package:provider/provider.dart';
@@ -24,13 +23,26 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
     Provider.of<ApplyJobsController>(context, listen: false).fetchApplyJobs(context);
   }
 
+  var searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: StudentAppBar(
-        title: "Apply for Jobs",
+      appBar: AppBar(
+        title: Text("Apply for Jobs"),
+        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: Padding(
+            padding: EdgeInsets.only(left: size.width * .05, right: size.width * .05),
+            child: SearchBar(
+              leading: Icon(Icons.search),
+              controller: searchController,
+            ),
+          ),
+        ),
       ),
       body: Consumer<ApplyJobsController>(builder: (context, controller, child) {
         return controller.isLoading
@@ -50,7 +62,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                       return Container(
                         // height: size.height * .34,
                         // width: size.width * .9,
-                        margin: EdgeInsets.only(bottom: 10),
+                        margin: EdgeInsets.only(top: 10),
                         padding: EdgeInsets.only(left: size.width * .03, right: size.width * .03),
                         child: Card(
                           color: Colors.blueGrey.shade100,

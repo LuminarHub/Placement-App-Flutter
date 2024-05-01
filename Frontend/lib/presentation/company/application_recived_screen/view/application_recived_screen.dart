@@ -7,14 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../global_widget/simple_text_feild.dart';
 
-class ApplicationRecived extends StatefulWidget {
-  const ApplicationRecived({super.key});
+class ApplicationReceived extends StatefulWidget {
+  const ApplicationReceived({super.key});
 
   @override
-  State<ApplicationRecived> createState() => _ApplicationRecivedState();
+  State<ApplicationReceived> createState() => _ApplicationReceivedState();
 }
 
-class _ApplicationRecivedState extends State<ApplicationRecived> {
+class _ApplicationReceivedState extends State<ApplicationReceived> {
   late SharedPreferences sharedPreferences;
 
   @override
@@ -37,10 +37,12 @@ class _ApplicationRecivedState extends State<ApplicationRecived> {
       appBar: AppBar(
         //leading: Icon(Icons.menu),
         title: Text("Company Dashboard"),
+        centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
       ),
+      backgroundColor: ColorTheme.white,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
