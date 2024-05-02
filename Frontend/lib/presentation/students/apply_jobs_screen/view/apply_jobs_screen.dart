@@ -33,16 +33,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
       appBar: AppBar(
         title: Text("Apply for Jobs"),
         centerTitle: true,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: Padding(
-            padding: EdgeInsets.only(left: size.width * .05, right: size.width * .05),
-            child: SearchBar(
-              leading: Icon(Icons.search),
-              controller: searchController,
-            ),
-          ),
-        ),
+
       ),
       body: Consumer<ApplyJobsController>(builder: (context, controller, child) {
         return controller.isLoading

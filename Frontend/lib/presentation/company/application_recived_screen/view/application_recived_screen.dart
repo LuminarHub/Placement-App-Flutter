@@ -24,7 +24,7 @@ class _ApplicationReceivedState extends State<ApplicationReceived> {
   }
 
   fetchData() async {
-    Provider.of<ApplicationRecivedController>(context, listen: false)
+    Provider.of<ApplicationReceivedController>(context, listen: false)
         .fetchStudentApplication(context);
   }
 
@@ -46,7 +46,7 @@ class _ApplicationReceivedState extends State<ApplicationReceived> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: Consumer<ApplicationRecivedController>(
+          child: Consumer<ApplicationReceivedController>(
               builder: (context, controller, _) {
             return controller.isLoading
                 ? Center(child: CircularProgressIndicator())
@@ -120,7 +120,7 @@ class _ApplicationReceivedState extends State<ApplicationReceived> {
                                                   const AlwaysScrollableScrollPhysics(),
                                               child: Padding(
                                                 padding:
-                                                    const EdgeInsets.all(10.0),
+                                                     EdgeInsets.fromLTRB(10.0,10.0,10.0,MediaQuery.of(context).viewInsets.bottom),
                                                 child: Center(
                                                   child: Column(
                                                     crossAxisAlignment:
@@ -159,7 +159,7 @@ class _ApplicationReceivedState extends State<ApplicationReceived> {
                                                       Center(
                                                           child: MaterialButton(
                                                         onPressed: () {
-                                                          Provider.of<ApplicationRecivedController>(
+                                                          Provider.of<ApplicationReceivedController>(
                                                                   context,
                                                                   listen: false)
                                                               .scheduleInterview(

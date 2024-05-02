@@ -5,6 +5,7 @@ import 'package:placement_app/presentation/students/bottom_navigation_screen/con
 import 'package:placement_app/presentation/students/interview/view/interview_screen.dart';
 import 'package:placement_app/presentation/students/applicatioon_status/view/application_status.dart';
 import 'package:placement_app/presentation/students/quiz_screen/view/quiz_screen.dart';
+import 'package:placement_app/presentation/students/study_material_screen/view/study_material_screen.dart';
 import 'package:provider/provider.dart';
 
 class StudentBottomNavigationScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class StudentBottomNavigationScreen extends StatelessWidget {
         return IndexedStack(
           children: [
             InterviewStatusScreen(),
+            StudyMaterialScreen(),
             QuizScreen(),
             ApplyJobScreen(),
             ApplicationStatus()
@@ -49,7 +51,9 @@ class StudentBottomNavigationScreen extends StatelessWidget {
                 showUnselectedLabels: false,
                 items: [
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.menu_book_sharp), label: "Interview"),
+                      icon: Icon(Icons.person), label: "Interview"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.menu_book_sharp), label: "Study Material"),
                   BottomNavigationBarItem(icon: Icon(Icons.quiz),label: "Quiz"),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.add), label: "Apply"),

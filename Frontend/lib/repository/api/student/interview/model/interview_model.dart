@@ -30,32 +30,32 @@ class InterviewModel {
 
 class Datum {
     int? id;
+    String? company;
     String? dateTime;
     String? location;
-    int? company;
     int? application;
 
     Datum({
         this.id,
+        this.company,
         this.dateTime,
         this.location,
-        this.company,
         this.application,
     });
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
+        company: json["company"],
         dateTime: json["date_time"],
         location: json["location"],
-        company: json["company"],
         application: json["application"],
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
+        "company": company,
         "date_time": dateTime,
         "location": location,
-        "company": company,
         "application": application,
     };
 }

@@ -25,6 +25,7 @@ import 'package:placement_app/presentation/tpo/student_screen/controller/tpo_man
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => CompanyLoginController()),
     ChangeNotifierProvider(create: (context) => StudentLoginController()),
@@ -36,7 +37,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => TpoRegisterController()),
     ChangeNotifierProvider(create: (context) => CompanyRegisterController()),
     ChangeNotifierProvider(create: (context) => TPOManageStudentController()),
-    ChangeNotifierProvider(create: (context) => ApplicationRecivedController()),
+    ChangeNotifierProvider(create: (context) => ApplicationReceivedController()),
     ChangeNotifierProvider(create: (context) => JobsPostedController()),
     ChangeNotifierProvider(create: (context) => TPOManageCompanyController()),
     ChangeNotifierProvider(create: (context) => PostJobController()),

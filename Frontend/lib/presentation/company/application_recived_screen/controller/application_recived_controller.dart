@@ -6,7 +6,7 @@ import 'package:placement_app/repository/api/company/application_recived_screen/
 import 'package:placement_app/repository/api/company/application_recived_screen/service/application_recived_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ApplicationRecivedController extends ChangeNotifier {
+class ApplicationReceivedController extends ChangeNotifier {
   StudentApplicationModel studentApplicationModel = StudentApplicationModel();
   late SharedPreferences sharedPreferences;
   bool isLoading = false;
@@ -15,7 +15,7 @@ class ApplicationRecivedController extends ChangeNotifier {
   fetchStudentApplication(context) async {
     isLoading = true;
     notifyListeners();
-    log("ApplicationRecivedController -> fetchStudentApplication() started");
+    log("ApplicationReceivedController -> fetchStudentApplication() started");
     ApplicationRecivedService.fetchStudentApplication().then((value) {
       log("fetchStudentApplication() -> status -> ${value["status"]}");
       if (value["status"] == 1) {
